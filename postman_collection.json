@@ -1,0 +1,95 @@
+{
+	"info": {
+		"name": "Parking Lot System Task 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Floor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"floorNumber\": 1,\n    \"name\": \"Ground Floor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/floors",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "8080",
+					"path": [ "api", "floors" ]
+				}
+			}
+		},
+		{
+			"name": "Create Slot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"floorId\": 1,\n    \"slotNumber\": \"A101\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/slots",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "8080",
+					"path": [ "api", "slots" ]
+				}
+			}
+		},
+		{
+			"name": "Availability Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/availability?start=2024-04-10T10:00:00&end=2024-04-10T12:00:00",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "8080",
+					"path": [ "api", "availability" ],
+					"query": [
+						{ "key": "start", "value": "2024-04-10T10:00:00" },
+						{ "key": "end", "value": "2024-04-10T12:00:00" }
+					]
+				}
+			}
+		},
+		{
+			"name": "Create Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"slotId\": 1,\n    \"vehicleNumber\": \"KA05MH1234\",\n    \"startTime\": \"2024-04-10T10:00:00\",\n    \"endTime\": \"2024-04-10T11:30:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/reservations",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "8080",
+					"path": [ "api", "reservations" ]
+				}
+			}
+		}
+	]
+}
